@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Portofolio • Rifqy Maulana Azman – Mahasiswa Bisnis Digital</title>
+    <meta name="description" content="Portofolio Rifqy Maulana Azman, Mahasiswa Bisnis Digital. Menampilkan studi kasus, layanan, dan informasi kontak.">
+    
+    <meta property="og:title" content="Portofolio • Rifqy Maulana Azman">
+    <meta property="og:description" content="Mahasiswa Bisnis Digital yang fokus pada perpaduan strategi bisnis berbasis data dan inovasi teknologi.">
+    <meta property="og:image" content="og-cover.jpg"> <meta property="og:url" content="https://yourwebsite.com"> <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="favicon.png" type="image/png"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 
+        STYLE INLINE 
+        Berdasarkan portfolio_design_guide.json 
+        --- */
+
+        /* 1. DESIGN TOKENS & CSS VARIABLES */
+        :root {
+            /* Palette: Primary */
+            --color-primary-50: #EDF4F0;
+            --color-primary-100: #D7E6DD;
+            --color-primary-200: #B3D0C0;
+            --color-primary-300: #86B39B;
+            --color-primary-400: #5C9479;
+            --color-primary-500: #3D6B4A;
+            --color-primary-600: #2F4D3A;
+            --color-primary-700: #273E31;
+            --color-primary-800: #21352A;
+            --color-primary-900: #1B2B23; /* <-- Warna Hijau Tua untuk Navbar */
+
+            /* Palette: Accent */
+            --color-accent-50: #FFF6E5;
+            --color-accent-100: #FFE7BF;
+            --color-accent-200: #FFD38A;
+            --color-accent-300: #FFC158;
+            --color-accent-400: #FFB02E;
+            --color-accent-500: #F5A524;
+            --color-accent-600: #E0930F;
+            --color-accent-700: #BB7A0B;
+
+            /* Palette: Neutral */
+            --color-neutral-0: #FFFFFF;
+            --color-neutral-50: #F8FAF9;
+            --color-neutral-100: #F3F4F6;
+            --color-neutral-200: #E5E7EB;
+            --color-neutral-300: #D1D5DB;
+            --color-neutral-400: #9CA3AF;
+            --color-neutral-500: #6B7280;
+            --color-neutral-600: #4B5563;
+            --color-neutral-700: #374151;
+            --color-neutral-800: #1F2937;
+            --color-neutral-900: #111827;
+
+            /* Palette: Semantic */
+            --color-success: #22C55E;
+            --color-danger: #EF4444;
+
+            /* Typography */
+            --font-display: 'Poppins', 'Inter', system-ui, Arial, sans-serif;
+            --font-heading: 'Poppins', 'Inter', system-ui, Arial, sans-serif;
+            --font-body: 'Inter', system-ui, Arial, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Spacing Tokens */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 12px;
+            --space-lg: 16px;
+            --space-xl: 24px;
+            --space-2xl: 32px;
+            --space-3xl: 48px;
+            --space-4xl: 64px;
+
+            /* Radius Tokens */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-round: 9999px;
+
+            /* Shadow Tokens */
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 10px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+            --shadow-elevated: 0 20px 40px rgba(0,0,0,0.16);
+            
+            /* Motion Tokens */
+            --duration-base: 200ms;
+            --duration-smooth: 500ms; /* Durasi animasi disesuaikan untuk efek fade & blur */
+            --easing-standard: cubic-bezier(0.2, 0.6, 0.2, 1);
+            --easing-smooth: ease-in-out; 
+        }
+
+        /* 2. GLOBAL STYLES & RESETS */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-neutral-50);
+            color: var(--color-neutral-700);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 3. TYPOGRAPHY SCALE & STYLES */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--color-neutral-900);
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        h1 { font-size: 42px; }
+        h2 { font-size: 34px; }
+        h3 { font-size: 28px; }
+        h4 { font-size: 24px; }
+        h5 { font-size: 20px; }
+        
+        p {
+            margin-bottom: var(--space-lg);
+            max-width: 65ch;
+        }
+        
+        a {
+            color: var(--color-primary-500);
+            text-decoration: none;
+            transition: color var(--duration-base) var(--easing-standard);
+        }
+        
+        a:hover {
+            color: var(--color-primary-700);
+        }
+
+        /* 4. LAYOUT & UTILITY CLASSES */
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: var(--space-xl);
+            padding-right: var(--space-xl);
+        }
+        
+        section {
+            padding-top: var(--space-4xl);
+            padding-bottom: var(--space-4xl);
+        }
+        
+        .section-eyebrow {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent-600);
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-title {
+            margin-bottom: var(--space-3xl);
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--space-xl);
+        }
+
+        /* 5. COMPONENT STYLES */
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 16px;
+            padding: var(--space-md) var(--space-xl);
+            border: 1px solid transparent;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--duration-base) var(--easing-standard);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(245, 165, 36, 0.4);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary-800);
+            color: var(--color-neutral-0);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary:hover {
+            background-color: var(--color-primary-700);
+            color: var(--color-neutral-0);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-neutral-0);
+            color: var(--color-primary-800);
+            border: 1px solid var(--color-primary-200);
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-neutral-100);
+            color: var(--color-primary-800);
+        }
+        
+        /* Cards */
+        .card {
+            background-color: var(--color-neutral-0);
+            border: 1px solid var(--color-neutral-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-base) var(--easing-standard);
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Badge/Chip */
+        .badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-round);
+            font-size: 12px;
+            font-weight: 600;
+            background-color: var(--color-accent-100);
+            color: var(--color-accent-700);
+        }
+        
+        /* 6. SECTION STYLES */
+
+        /* --- PERUBAHAN ANIMASI NAVBAR --- */
+        .header {
+            position: fixed;
+            z-index: 1000;
+            top: 0; /* Posisi awal di atas */
+            left: 50%;
+            transform: translateX(-50%); /* Selalu di tengah secara horizontal */
+            width: 100%; /* Lebar penuh pada awalnya */
+            /* Transisi untuk properti 'top' agar animasi turun dari atas */
+            transition: top var(--duration-smooth) var(--easing-smooth);
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            width: 100%;
+            max-width: 1140px;
+            border-radius: 0; /* Awalnya tidak bulat */
+            background-color: transparent; /* Awalnya transparan */
+            /* Transisi untuk semua perubahan agar mulus (background, shadow, radius, dll) */
+            transition: all var(--duration-smooth) var(--easing-smooth);
+        }
+        .header-logo img {
+            max-height: 28px;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+            transition: filter var(--duration-smooth) var(--easing-smooth);
+        }
+        .header-nav, .header-cta {
+            display: none;
+        }
+        .mobile-menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-neutral-800);
+            padding: var(--space-sm);
+            transition: color var(--duration-smooth) var(--easing-smooth);
+        }
+        
+        /* Scrolled State */
+        .header.scrolled {
+            /* PERUBAHAN: Pindahkan posisi 'top' ke bawah untuk efek turun */
+            top: var(--space-md); 
+        }
+        .header.scrolled .header-container {
+            /* PERUBAHAN: Saat scroll, ubah container menjadi pill */
+            background-color: rgba(27, 43, 35, 0.8); /* var(--color-primary-900) dengan alpha */
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-round); /* Menjadi bulat */
+            box-shadow: var(--shadow-elevated);
+            height: 64px;
+            padding: 0 var(--space-md) 0 var(--space-lg);
+            width: auto; /* Lebar menyesuaikan isi */
+        }
+        .header.scrolled .header-logo img {
+            filter: brightness(0) invert(1);
+        }
+        .header.scrolled .mobile-menu-toggle {
+            color: var(--color-neutral-0);
+        }
+        /* --- AKHIR PERUBAHAN NAVBAR --- */
+
+        /* Hero Section */
+        #hero {
+            padding-top: 120px;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        #hero .container {
+            display: grid;
+            align-items: center;
+            gap: var(--space-3xl);
+        }
+        .hero-content {
+            text-align: center;
+        }
+        .hero-eyebrow {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-accent-600);
+            margin-bottom: var(--space-lg);
+        }
+        .hero-content h1 {
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+        }
+        .hero-content h1 .highlight {
+            color: var(--color-primary-600);
+        }
+        .hero-content p {
+            font-size: 18px;
+            color: var(--color-neutral-600);
+            max-width: 50ch;
+            margin: 0 auto var(--space-2xl) auto;
+        }
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image-wrapper img {
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            height: auto;
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+        
+        /* Skills (Services) Section */
+        #skills .grid {
+            grid-template-columns: 1fr;
+        }
+        .skill-card h3 {
+            margin-bottom: var(--space-lg);
+        }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+        .skill-item {
+            background-color: var(--color-primary-50);
+            color: var(--color-primary-800);
+            border: 1px solid var(--color-primary-100);
+            border-radius: var(--radius-md);
+            padding: var(--space-sm) var(--space-md);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        #about .container {
+            display: grid;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+        #about p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* Portfolio Section */
+        #portfolio .grid {
+            grid-template-columns: 1fr;
+        }
+        .project-card {
+            text-decoration: none;
+            color: inherit;
+        }
+        .project-card-image {
+            background-color: var(--color-neutral-100);
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            overflow: hidden;
+        }
+        .project-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-card h3 {
+            margin-bottom: var(--space-sm);
+        }
+        .project-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
+        }
+        
+        /* Journey (Education & Work) Section */
+        .timeline {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--color-neutral-200);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            padding: var(--space-lg) var(--space-2xl);
+            position: relative;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--color-neutral-0);
+            border: 3px solid var(--color-accent-500);
+            top: 24px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.left {
+            left: 0;
+            padding-right: var(--space-3xl);
+        }
+        .timeline-item.right {
+            left: 50%;
+            padding-left: var(--space-3xl);
+        }
+        .timeline-item.right::after {
+            left: -8px;
+        }
+        .timeline-content {
+            padding: var(--space-xl);
+            background-color: var(--color-neutral-0);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-neutral-200);
+            box-shadow: var(--shadow-sm);
+        }
+        .timeline-content h4 { font-size: 18px; }
+        .timeline-period {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-accent-600);
+            margin-bottom: var(--space-sm);
+        }
+        .timeline-subtitle {
+            font-style: italic;
+            color: var(--color-neutral-500);
+            margin-bottom: var(--space-md);
+        }
+
+        /* Achievements Section */
+        #achievements .grid {
+            grid-template-columns: 1fr;
+        }
+        .achievement-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            align-items: center;
+            text-align: center;
+        }
+        .achievement-card img {
+            max-height: 60px;
+        }
+
+        /* CTA Section */
+        #cta {
+            background: var(--color-primary-900);
+            color: var(--color-neutral-0);
+        }
+        #cta .container {
+            text-align: center;
+        }
+        #cta .section-title {
+            color: var(--color-neutral-0);
+            margin-bottom: var(--space-2xl);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-neutral-900);
+            color: var(--color-neutral-400);
+            padding: var(--space-3xl) 0;
+            text-align: center;
+        }
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            list-style: none;
+            margin-bottom: var(--space-xl);
+        }
+        .footer-socials a {
+            color: var(--color-neutral-300);
+        }
+        .footer-socials a:hover {
+            color: var(--color-accent-400);
+        }
+        .footer-socials svg {
+            width: 24px;
+            height: 24px;
+        }
+        .footer-copy {
+            font-size: 14px;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* 7. RESPONSIVE STYLES */
+        @media (max-width: 767px) {
+            /* --- PERBAIKAN HERO SECTION MOBILE --- */
+            #hero {
+                padding-top: 100px;
+                padding-bottom: var(--space-3xl);
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+            #hero .container {
+                gap: var(--space-2xl);
+            }
+
+            .timeline::after {
+                left: 15px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: var(--space-3xl);
+                padding-right: var(--space-lg);
+            }
+            .timeline-item.left, .timeline-item.right {
+                left: 0;
+            }
+            .timeline-item::after {
+                left: 7px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            h1 { font-size: 54px; }
+            .container { max-width: 720px; }
+
+            .header-container {
+                 padding: 0 var(--space-xl);
+            }
+            .mobile-menu-toggle { 
+                display: none;
+            }
+            .header-nav, .header-cta {
+                display: block;
+            }
+            .header-nav-list {
+                display: flex;
+                list-style: none;
+                gap: 0;
+                transition: gap var(--duration-smooth) var(--easing-smooth);
+            }
+            .header-nav-link {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--color-neutral-700);
+                text-shadow: 0 1px 1px rgba(255,255,255,0.2);
+                padding: var(--space-md) var(--space-lg);
+                transition: all var(--duration-smooth) var(--easing-smooth);
+            }
+            .header.scrolled .header-nav-list {
+                gap: var(--space-sm);
+            }
+            .header.scrolled .header-nav-link {
+                color: var(--color-neutral-200);
+                text-shadow: none;
+            }
+            .header.scrolled .header-nav-link:hover {
+                color: var(--color-neutral-0);
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: var(--radius-round);
+            }
+             .header.scrolled .header-cta .btn {
+                padding: var(--space-sm) var(--space-lg);
+                font-size: 14px;
+            }
+            
+            .hero-cta-group {
+                flex-direction: row;
+                justify-content: center;
+                gap: var(--space-lg);
+            }
+
+            #skills .grid, #portfolio .grid, #achievements .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            #about .container {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container { max-width: 960px; }
+            #hero .container {
+                grid-template-columns: 6fr 6fr;
+                text-align: left;
+            }
+            .hero-content {
+                text-align: left;
+            }
+            .hero-content p {
+                margin: 0 0 var(--space-2xl) 0;
+            }
+            .hero-cta-group {
+                justify-content: flex-start;
+            }
+            #portfolio .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container { max-width: 1140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="header-logo">
+                <img src="logo.png" alt="Rifqy Maulana Azman Logo"> </a>
+            <nav class="header-nav">
+                <ul class="header-nav-list">
+                    <li><a href="#hero" class="header-nav-link">Home</a></li>
+                    <li><a href="#skills" class="header-nav-link">Skills</a></li>
+                    <li><a href="#about" class="header-nav-link">About</a></li>
+                    <li><a href="#portfolio" class="header-nav-link">Portfolio</a></li>
+                    <li><a href="#journey" class="header-nav-link">Journey</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="#cta" class="btn btn-primary">Hubungi Saya</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-eyebrow">Halo, Salam Kenal!</span>
+                    <h1>Saya <span class="highlight">Rifqy Maulana</span>, Mahasiswa Bisnis Digital.</h1>
+                    <p>
+                        Saya adalah seorang Problem Solver yang terampil merumuskan solusi bisnis praktis dan membangun fondasi digital melalui Website Development.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="#portfolio" class="btn btn-primary">Lihat Portofolio</a>
+                        <a href="#journey" class="btn btn-secondary">Perjalanan Saya</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="hero.png" alt="Foto Profil Rifqy Maulana Azman"> </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Keterampilan Utama</h2>
+                <div class="grid">
+                    <div class="card skill-card">
+                        <h3>Hard Skills</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Problem Solving Bisnis</span>
+                            <span class="skill-item">Website Development</span>
+                            <span class="skill-item">Meta Advertising</span>
+                            <span class="skill-item">Konten Kreatif</span>
+                            <span class="skill-item">Riset KOL</span>
+                            <span class="skill-item">Analisis Keuangan Dasar</span>
+                        </div>
+                    </div>
+                    <div class="card skill-card">
+                        <h3>Soft Skills</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Public Speaking</span>
+                            <span class="skill-item">Kepemimpinan</span>
+                            <span class="skill-item">Kesabaran</span>
+                            <span class="skill-item">Customer Service</span>
+                            <span class="skill-item">Manajemen Waktu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" style="background-color: var(--color-neutral-0);">
+            <div class="container">
+                <div>
+                    <span class="section-eyebrow">Tentang Saya</span>
+                    <h2>Siapa Rifqy Maulana Azman?</h2>
+                    <p>
+                        Mahasiswa Bisnis Digital yang didorong oleh hasil, fokus pada perpaduan strategi bisnis berbasis data dan inovasi teknologi. Pengalaman saya sebagai Founder beberapa inisiatif bisnis sejak dini telah mengasah kemampuan saya untuk tidak hanya merencanakan, tetapi juga mengeksekusi fondasi merek.
+                    </p>
+                    <p>
+                        Saya mencari peluang untuk berkolaborasi dalam proyek yang menantang, di mana saya dapat mengaplikasikan pemahaman teknologi untuk menciptakan nilai bisnis yang nyata.
+                    </p>
+                </div>
+                <div>
+                    <div class="card">
+                        <h3>Pengetahuan Bisnis</h3>
+                        <p>Memahami alur bisnis lengkap (Manajemen, Operasional, Marketing, Finance, SDM) dari bisnis multi-cabang.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <h2 class="section-title">Portfolio & Pengalaman Bisnis</h2>
+                <div class="grid">
+                    <a href="https://www.instagram.com/tawasin.id" target="_blank" class="card project-card">
+                        <div class="project-card-image">
+                            <img src="tawasin-project.png" alt="Tawasin Natural Deodorant"> </div>
+                        <h3>Tawasin Natural Deodorant</h3>
+                        <p>Berhasil melakukan Branding Awal dari nol, mulai dari identitas visual hingga penentuan target pasar.</p>
+                        <div class="project-card-tags">
+                            <span class="badge">Branding</span>
+                            <span class="badge">Founder</span>
+                        </div>
+                    </a>
+                    <a href="#" class="card project-card">
+                        <div class="project-card-image">
+                           <img src="kimbabkeun-project.png" alt="Kimbabkeun"> </div>
+                        <h3>Kimbabkeun</h3>
+                        <p>Berhasil melakukan Branding Awal dan menentukan strategi penetapan harga produk F&B.</p>
+                         <div class="project-card-tags">
+                            <span class="badge">Branding</span>
+                            <span class="badge">F&B</span>
+                            <span class="badge">Founder</span>
+                        </div>
+                    </a>
+                    <a href="#" class="card project-card">
+                        <div class="project-card-image">
+                           <img src="manusia-digital-project.png" alt="Manusia Digital"> </div>
+                        <h3>Manusia Digital</h3>
+                        <p>Berhasil melakukan Branding Awal untuk fokus di bidang edukasi dan konsultasi digital.</p>
+                         <div class="project-card-tags">
+                            <span class="badge">Branding</span>
+                            <span class="badge">Edukasi</span>
+                            <span class="badge">Founder</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" style="background-color: var(--color-neutral-0);">
+            <div class="container">
+                <h2 class="section-title">Perjalanan Akademik & Profesional</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-period">2023 - Sekarang</span>
+                            <h4>Universitas Pakuan</h4>
+                            <p class="timeline-subtitle">Mahasiswa S1 Bisnis Digital (Semester 3)</p>
+                            <p>Mempelajari perpaduan strategi bisnis, data, dan inovasi teknologi.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-period">April 2025 - Sekarang</span>
+                            <h4>Perumahan Panorama Kemang</h4>
+                            <p class="timeline-subtitle">Marketing & Sales Support</p>
+                            <p>Bertanggung jawab dalam pembuatan konten digital, CS, dan mendampingi proses KPR konsumen.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-period">2 Bulan</span>
+                            <h4>Sekolah Al-Bunyan</h4>
+                            <p class="timeline-subtitle">Guru Ekskul Programming</p>
+                            <p>Mengajar dan membimbing siswa dalam materi programming dasar.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-period">2023</span>
+                            <h4>Roti Bakar Panjo (7 Cabang)</h4>
+                            <p class="timeline-subtitle">Magang Multidisiplin</p>
+                            <p>Melaksanakan riset KOL, membuat konten, dan mempelajari seluruh alur bisnis dari bisnis multi-cabang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="achievements">
+            <div class="container">
+                <h2 class="section-title">Prestasi & Penghargaan</h2>
+                <div class="grid">
+                    <div class="card achievement-card">
+                        <img src="yea1.png" alt="Young Entrepreneur Academy Logo"> <h4>Digital Marketing Competition</h4>
+                        <p>Meraih omzet terbanyak melalui kampanye Facebook Ads bersama tim di kompetisi yang diselenggarakan oleh Young Entrepreneur Academy (2023) & Multimedia University, Malaysia.</p>
+                    </div>
+                     <div class="card achievement-card">
+                        <img src="mmu.png" alt="Multimedia University Logo"> <h4>Effective Promotion Innovation Award</h4>
+                        <p>Diterima melalui Business Plan Competition dengan inovasi irigasi otomatis berbasis AI dan IoT untuk perkebunan kopi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container">
+                <h2 class="section-title">Siap membangun sesuatu yang keren?</h2>
+                <p style="color: var(--color-neutral-300); max-width: 50ch; margin: 0 auto var(--space-2xl) auto;">Mari berkolaborasi untuk menciptakan nilai bisnis yang nyata melalui teknologi.</p>
+                <a href="mailto:riifqymaulanaa@gmail.com" class="btn btn-primary" style="background-color: var(--color-accent-500); color: var(--color-neutral-900);">Ayo Ngobrol</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-socials">
+                <li><a href="https://www.linkedin.com/in/rifqy-maulana-azman-36131b2bb" target="_blank" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5 1.75 1.75 0 0 1 6.5 8.25zM19 19h-3v-4.75c0-1.4-1.2-2.5-2.5-2.5S11 12.85 11 14.25V19h-3v-9h2.9v1.35c.7-1.2 2.1-1.85 3.6-1.85 2.5 0 4.5 2.25 4.5 5V19z"/></svg>
+                </a></li>
+                <li><a href="https://www.instagram.com/rifqymaulanaa15" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122s-.013 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06s-3.056-.013-4.122-.06c-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.905 4.905 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 2c-2.67 0-2.987.01-4.043.058-1.002.045-1.505.207-1.858.344-.45.18-.76.395-1.126.76s-.58.675-.76 1.126c-.137.353-.3.856-.344 1.858C2.01 9.013 2 9.33 2 12s.01 2.987.058 4.043c.045 1.002.207 1.505.344 1.858.18.45.395.76.76 1.126s.675.58 1.126.76c.353.137.856.3 1.858.344C9.013 21.99 9.33 22 12 22s2.987-.01 4.043-.058c1.002-.045 1.505-.207 1.858-.344.45-.18.76.395 1.126.76s.58-.675.76-1.126c.137-.353.3-.856-.344-1.858.048-1.056.058-1.373.058-4.043s-.01-2.987-.058-4.043c-.045-1.002-.207-1.505-.344-1.858-.18-.45-.395-.76-.76-1.126s-.675-.58-1.126-.76c-.353-.137-.856-.3-1.858-.344C14.987 4.01 14.67 4 12 4zm0 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm0 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm6.5-3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
+                </a></li>
+                <li><a href="mailto:riifqymaulanaa@gmail.com" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                </a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2025 Rifqy Maulana Azman. Dibuat dengan panduan desain Portfolio Pro.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // ---
+        // JAVASCRIPT INLINE
+        // ---
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Navbar animation on scroll
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // 2. Smooth scrolling for anchor links
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    let targetId = this.getAttribute('href');
+                    let targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
